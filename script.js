@@ -1,28 +1,34 @@
 /*
  * 청첩장 정보는 아래 WEDDING 객체에서 한 번에 수정할 수 있습니다.
- * 날짜가 확정되면 date에 YYYY.MM.DD 형식으로 입력하세요.
+ * 예식 정보가 바뀌면 아래 항목만 수정하세요.
  */
 const WEDDING = {
   groomName: "김현수",
   brideName: "이민선",
   groomParents: "김태형 · 한유경",
   brideParents: "이기복 · 김봉자",
-  date: "2000.00.00",
-  time: "00시 00분",
-  year: "2000",
-  venue: "예식장 이름 · 예식홀",
-  address: "예식장 주소가 입력될 예정입니다.",
-  subway: "가까운 역과 출구 정보를 입력해 주세요.",
-  bus: "정류장과 버스 번호를 입력해 주세요.",
-  parking: "주차장 이용 정보를 입력해 주세요.",
+  date: "2030.05.31 FRI",
+  dateISO: "2030-05-31T18:30:00+09:00",
+  time: "오후 6시 30분",
+  year: "2030",
+  venue: "시그니엘 서울 · 그랜드볼룸",
+  address: "서울 송파구 올림픽로 300, 롯데월드타워 76층",
+  subway: "2호선 잠실역 2번 출구 도보 3분 · 8호선 잠실역 11번 출구 도보 7분",
+  bus: "잠실역·롯데월드몰 정류장 하차 후 롯데월드타워 방향으로 이동해 주세요.",
+  parking: "롯데월드타워 지하주차장 이용 · 주차 등록은 예식 당일 안내데스크에 문의해 주세요.",
   brideBank: "NH농협",
   brideAccount: "356-1114-0140-93",
   brideAccountHolder: "예금주 이민선",
   mapLinks: {
-    naver: "",
-    kakao: "",
-    tmap: "",
+    naver: "https://map.naver.com/p/search/%EC%8B%9C%EA%B7%B8%EB%8B%88%EC%97%98%20%EC%84%9C%EC%9A%B8",
+    kakao: "https://map.kakao.com/?q=%EC%8B%9C%EA%B7%B8%EB%8B%88%EC%97%98%20%EC%84%9C%EC%9A%B8",
   },
+};
+
+const GUESTBOOK = {
+  repository: "minsun3054document/ms_marry",
+  apiUrl: "https://api.github.com/repos/minsun3054document/ms_marry/issues?state=open&labels=guestbook&sort=created&direction=desc&per_page=30",
+  newIssueUrl: "https://github.com/minsun3054document/ms_marry/issues/new",
 };
 
 const galleryImages = [
@@ -37,6 +43,13 @@ document.querySelectorAll("[data-field]").forEach((element) => {
 });
 
 document.title = `${WEDDING.groomName} & ${WEDDING.brideName} 결혼합니다`;
+
+const weddingDate = new Date(WEDDING.dateISO);
+const daysUntilWedding = Math.ceil((weddingDate.getTime() - Date.now()) / 86_400_000);
+const dDay = document.querySelector("#d-day");
+if (daysUntilWedding > 0) dDay.textContent = `D-${daysUntilWedding.toLocaleString("ko-KR")}`;
+else if (daysUntilWedding === 0) dDay.textContent = "D-DAY";
+else dDay.textContent = "JUST MARRIED";
 
 const progress = document.querySelector(".page-progress span");
 const updateProgress = () => {
@@ -110,14 +123,84 @@ document.querySelectorAll(".copy-button").forEach((button) => {
 
 document.querySelectorAll(".route-button").forEach((button) => {
   button.addEventListener("click", () => {
+    if (button.dataset.route === "address") {
+      copyText(WEDDING.address, "예식장 주소를 복사했어요.");
+      return;
+    }
     const url = WEDDING.mapLinks[button.dataset.route];
     if (!url) {
-      showToast("예식장 확정 후 길찾기가 연결됩니다.");
+      showToast("길찾기 링크를 확인해 주세요.");
       return;
     }
     window.open(url, "_blank", "noopener,noreferrer");
   });
 });
+
+const guestbookForm = document.querySelector("#guestbook-form");
+const guestbookList = document.querySelector("#guestbook-list");
+
+function createGuestbookMessage(issue) {
+  const article = document.createElement("article");
+  article.className = "guestbook-message";
+
+  const header = document.createElement("div");
+  const name = document.createElement("strong");
+  const date = document.createElement("time");
+  const message = document.createElement("p");
+
+  name.textContent = issue.title.replace(/^\[축하\]\s*/, "") || issue.user.login;
+  date.dateTime = issue.created_at;
+  date.textContent = new Intl.DateTimeFormat("ko-KR", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date(issue.created_at));
+  message.textContent = (issue.body || "축하합니다!").split("\n\n---")[0].trim();
+
+  header.append(name, date);
+  article.append(header, message);
+  return article;
+}
+
+async function loadGuestbook() {
+  try {
+    const response = await fetch(GUESTBOOK.apiUrl, {
+      headers: { Accept: "application/vnd.github+json" },
+    });
+    if (!response.ok) throw new Error(`Guestbook request failed: ${response.status}`);
+    const issues = (await response.json()).filter((issue) => !issue.pull_request);
+    guestbookList.replaceChildren();
+
+    if (!issues.length) {
+      const empty = document.createElement("p");
+      empty.className = "guestbook-list__status";
+      empty.textContent = "첫 번째 축하 메시지를 남겨 주세요.";
+      guestbookList.append(empty);
+      return;
+    }
+
+    issues.forEach((issue) => guestbookList.append(createGuestbookMessage(issue)));
+  } catch {
+    guestbookList.innerHTML = '<p class="guestbook-list__status">첫 번째 축하 메시지를 남겨 주세요.</p>';
+  }
+}
+
+guestbookForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const name = document.querySelector("#guest-name").value.trim();
+  const message = document.querySelector("#guest-message").value.trim();
+  if (!name || !message) return;
+
+  const params = new URLSearchParams({
+    title: `[축하] ${name}`,
+    body: `${message}\n\n---\n모바일 청첩장에서 남긴 메시지입니다.`,
+    labels: "guestbook",
+  });
+  window.open(`${GUESTBOOK.newIssueUrl}?${params.toString()}`, "_blank", "noopener,noreferrer");
+  showToast("GitHub에서 등록을 완료해 주세요.");
+});
+
+loadGuestbook();
 
 document.querySelector("#copy-link-button").addEventListener("click", () => {
   copyText(window.location.href, "초대장 링크를 복사했어요.");
