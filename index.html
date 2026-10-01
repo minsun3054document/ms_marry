@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#f2eee4" />
+    <meta
+      name="description"
+      content="서로의 가장 좋은 친구가 되어 한 걸음을 시작합니다. 소중한 날에 초대합니다."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="김현수 & 이민선 결혼합니다" />
+    <meta
+      property="og:description"
+      content="소중한 분들을 저희의 시작에 초대합니다."
+    />
+    <meta property="og:image" content="assets/photo-01.webp" />
+    <title>김현수 & 이민선 결혼합니다</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="page-progress" aria-hidden="true"><span></span></div>
+
+    <main class="invitation">
+      <header class="hero" id="top">
+        <nav class="hero__nav" aria-label="청첩장 안내">
+          <span>OUR WEDDING DAY</span>
+          <a href="#invitation">INVITATION ↓</a>
+        </nav>
+
+        <div class="hero__image-wrap">
+          <img
+            class="hero__image"
+            src="assets/photo-01.webp"
+            alt="꽃으로 장식된 공간에서 함께 미소 짓는 예비 신랑과 신부"
+            fetchpriority="high"
+          />
+          <div class="hero__shade" aria-hidden="true"></div>
+          <p class="hero__eyebrow">TWO HEARTS, ONE HOME</p>
+          <div class="hero__title">
+            <p>우리,</p>
+            <h1>결혼합니다</h1>
+          </div>
+          <p class="hero__number" aria-hidden="true">01</p>
+        </div>
+
+        <div class="hero__info">
+          <p class="couple-names">
+            <span data-field="groomName">김현수</span>
+            <span class="ampersand">&amp;</span>
+            <span data-field="brideName">이민선</span>
+          </p>
+          <p class="event-date">
+            <span data-field="date">2000.00.00</span>
+            <span class="dot">·</span>
+            <span data-field="time">00시 00분</span>
+          </p>
+          <p class="event-venue" data-field="venue">예식장 이름 · 예식홀</p>
+        </div>
+
+        <a class="scroll-cue" href="#invitation" aria-label="초대글로 이동">
+          <span>SCROLL</span>
+          <svg viewBox="0 0 16 34" aria-hidden="true">
+            <path d="M8 1v30M2 25l6 7 6-7" />
+          </svg>
+        </a>
+      </header>
+
+      <section class="section intro reveal" id="invitation">
+        <p class="section-kicker">INVITATION</p>
+        <h2>서로의 오늘을 아끼며<br />같은 내일을 걷겠습니다.</h2>
+        <div class="botanical-mark" aria-hidden="true">
+          <svg viewBox="0 0 100 64">
+            <path d="M50 62C47 39 37 21 16 5M50 62C55 37 66 20 88 3M42 45c-9 1-15-3-20-10 9-1 15 2 20 10Zm15-11c8 0 14-4 18-11-8-1-14 3-18 11ZM35 29c-7-1-12-5-15-12 8 0 13 4 15 12Zm31-10c7 0 12-4 16-10-7-1-12 3-16 10Z" />
+          </svg>
+        </div>
+        <p class="intro__copy">
+          평범한 날들을 특별하게 만들어 준 사람과<br />
+          이제는 부부라는 이름으로 함께하려 합니다.<br />
+          저희 두 사람의 새로운 시작을<br />
+          따뜻한 마음으로 축복해 주세요.
+        </p>
+        <div class="family-lines" aria-label="혼주 및 신랑 신부 소개">
+          <p>
+            <span data-field="groomParents">김태형 · 한유경</span>
+            <span class="relation">의 아들</span>
+            <strong data-field="groomName">김현수</strong>
+          </p>
+          <p>
+            <span data-field="brideParents">이기복 · 김봉자</span>
+            <span class="relation">의 딸</span>
+            <strong data-field="brideName">이민선</strong>
+          </p>
+        </div>
+      </section>
+
+      <section class="section date-card reveal" aria-labelledby="date-title">
+        <div class="date-card__top">
+          <div>
+            <p class="section-kicker">SAVE THE DATE</p>
+            <h2 id="date-title">The day<br />we say yes.</h2>
+          </div>
+          <span class="date-card__index">02</span>
+        </div>
+
+        <div class="date-display" aria-label="예식 날짜와 시간">
+          <p data-field="date">2000.00.00</p>
+          <span aria-hidden="true"></span>
+          <p data-field="time">00시 00분</p>
+        </div>
+
+        <div class="calendar-placeholder">
+          <div class="calendar-placeholder__ring" aria-hidden="true"></div>
+          <p>DATE TO<br />BE ANNOUNCED</p>
+          <small>예식일이 정해지면 달력이 표시됩니다.</small>
+        </div>
+      </section>
+
+      <section class="section gallery reveal" id="gallery" aria-labelledby="gallery-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">OUR MOMENTS</p>
+            <h2 id="gallery-title">우리다운 순간들</h2>
+          </div>
+          <p>서로를 가장 편안하게<br />바라보는 요즘의 우리.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <button class="gallery-item gallery-item--wide" type="button" data-image="0">
+            <img src="assets/photo-01.webp" alt="웨딩드레스와 턱시도를 입고 함께 미소 짓는 두 사람" loading="lazy" />
+            <span>01 — OUR STORY</span>
+          </button>
+          <button class="gallery-item" type="button" data-image="1">
+            <img src="assets/photo-02.webp" alt="손으로 하트를 만들고 있는 신랑과 신부" loading="lazy" />
+            <span>02 — WITH LOVE</span>
+          </button>
+          <button class="gallery-item" type="button" data-image="2">
+            <img src="assets/photo-03.webp" alt="나란히 앉아 장난스러운 표정을 짓는 신랑과 신부" loading="lazy" />
+            <span>03 — TOGETHER</span>
+          </button>
+        </div>
+
+        <p class="gallery-hint">사진을 누르면 크게 볼 수 있어요.</p>
+      </section>
+
+      <section class="section location reveal" id="location" aria-labelledby="location-title">
+        <div class="location__title">
+          <p class="section-kicker">LOCATION</p>
+          <h2 id="location-title">오시는 길</h2>
+          <p class="location__venue" data-field="venue">예식장 이름 · 예식홀</p>
+          <p class="location__address" data-field="address">예식장 주소가 입력될 예정입니다.</p>
+        </div>
+
+        <div class="map-placeholder" aria-label="예식장 위치 지도 준비 중">
+          <svg viewBox="0 0 540 260" preserveAspectRatio="none" aria-hidden="true">
+            <path class="map-line map-line--thin" d="M-20 64c70 31 97 24 153 0s98-26 150 0 107 26 160-5 88-18 117 2" />
+            <path class="map-line" d="M66-10c10 68 17 111 56 148s87 50 99 132" />
+            <path class="map-line map-line--thin" d="M305-10c-14 59-8 100 37 126s86 46 90 154" />
+            <path class="map-line" d="M-10 201c68-35 122-39 184-12s132 30 205-7 122-27 171-6" />
+            <circle cx="290" cy="129" r="10" />
+            <circle class="map-pulse" cx="290" cy="129" r="24" />
+          </svg>
+          <div class="map-placeholder__label">
+            <strong>WEDDING PLACE</strong>
+            <span>주소 확정 후 지도가 연결됩니다</span>
+          </div>
+        </div>
+
+        <div class="location__links" aria-label="길찾기 링크">
+          <button type="button" class="route-button" data-route="naver">네이버 지도</button>
+          <button type="button" class="route-button" data-route="kakao">카카오맵</button>
+          <button type="button" class="route-button" data-route="tmap">티맵</button>
+        </div>
+
+        <div class="transport-list">
+          <div>
+            <span class="transport-icon" aria-hidden="true">M</span>
+            <div>
+              <strong>지하철</strong>
+              <p data-field="subway">가까운 역과 출구 정보를 입력해 주세요.</p>
+            </div>
+          </div>
+          <div>
+            <span class="transport-icon" aria-hidden="true">B</span>
+            <div>
+              <strong>버스</strong>
+              <p data-field="bus">정류장과 버스 번호를 입력해 주세요.</p>
+            </div>
+          </div>
+          <div>
+            <span class="transport-icon" aria-hidden="true">P</span>
+            <div>
+              <strong>주차</strong>
+              <p data-field="parking">주차장 이용 정보를 입력해 주세요.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact reveal" aria-labelledby="contact-title">
+        <p class="section-kicker">CONTACT</p>
+        <h2 id="contact-title">축하의 마음 전하기</h2>
+        <p class="contact__description">
+          참석이 어려우신 분들을 위해<br />축하의 마음을 전할 곳을 안내드립니다.
+        </p>
+
+        <div class="accordion-group">
+          <article class="accordion">
+            <button type="button" class="accordion__trigger" aria-expanded="false">
+              <span><i></i> 마음 전하실 곳</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" /></svg>
+            </button>
+            <div class="accordion__panel" hidden>
+              <div class="account-row">
+                <div>
+                  <small data-field="brideBank">NH농협</small>
+                  <p data-field="brideAccount">356-1114-0140-93</p>
+                  <span data-field="brideAccountHolder">예금주 이민선</span>
+                </div>
+                <button type="button" class="copy-button" data-copy-field="brideAccount">복사</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="closing reveal" aria-label="마무리 인사">
+        <img src="assets/photo-02.webp" alt="웨딩드레스와 예복을 입고 손하트 포즈를 한 두 사람" loading="lazy" />
+        <div class="closing__shade" aria-hidden="true"></div>
+        <div class="closing__text">
+          <p>THANK YOU</p>
+          <h2>저희의 첫 장면을<br />함께해 주세요.</h2>
+          <span data-field="groomName">김현수</span>
+          <i>&amp;</i>
+          <span data-field="brideName">이민선</span>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="share-actions">
+          <button type="button" id="share-button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="18" cy="5" r="2.5" /><circle cx="6" cy="12" r="2.5" /><circle cx="18" cy="19" r="2.5" /><path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5" />
+            </svg>
+            초대장 공유하기
+          </button>
+          <button type="button" id="copy-link-button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.2 1.2M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.2-1.2" /></svg>
+            링크 복사
+          </button>
+        </div>
+        <p>MADE WITH LOVE · <span data-field="year">2000</span></p>
+        <a href="#top">BACK TO TOP ↑</a>
+      </footer>
+    </main>
+
+    <dialog class="lightbox" id="lightbox" aria-label="사진 크게 보기">
+      <button class="lightbox__close" type="button" aria-label="사진 닫기">×</button>
+      <button class="lightbox__arrow lightbox__arrow--prev" type="button" aria-label="이전 사진">←</button>
+      <figure>
+        <img src="" alt="" />
+        <figcaption><span>01</span> / 03</figcaption>
+      </figure>
+      <button class="lightbox__arrow lightbox__arrow--next" type="button" aria-label="다음 사진">→</button>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

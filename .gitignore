@@ -1,0 +1,7 @@
+# 원본 촬영 파일은 저장소에 올리지 않습니다.
+picture/
+
+# 로컬 미리보기 및 운영체제 파일
+.preview-*.png
+.webdriver-*.png
+.DS_Store
