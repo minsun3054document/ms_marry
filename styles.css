@@ -95,7 +95,7 @@ img {
   padding: 1px 2px 16px;
   font-family: var(--display);
   font-size: 11px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
 }
 
 .hero__nav a {
@@ -136,8 +136,8 @@ img {
   left: 20px;
   margin: 0;
   color: rgba(255, 255, 255, 0.95);
-  font-size: 9px;
-  letter-spacing: 0.2em;
+  font-size: 8px;
+  letter-spacing: 0.24em;
   writing-mode: vertical-rl;
 }
 
@@ -192,7 +192,8 @@ img {
   display: grid;
   grid-template-columns: auto 20px;
   align-items: center;
-  font: 500 clamp(16px, 4vw, 19px)/1.5 var(--serif);
+  font: 700 clamp(21px, 5.4vw, 27px)/1.35 var(--serif);
+  letter-spacing: -0.035em;
 }
 
 .couple-names span:not(.ampersand) {
@@ -204,13 +205,13 @@ img {
   grid-row: 1 / span 2;
   margin-left: 6px;
   color: var(--sage);
-  font: italic 19px var(--display);
+  font: italic 22px var(--display);
 }
 
 .event-date,
 .event-venue {
   text-align: right;
-  font-size: 10px;
+  font-size: 10.5px;
   letter-spacing: 0.03em;
 }
 
@@ -253,7 +254,7 @@ img {
   margin: 0 0 24px;
   color: var(--sage);
   font: 500 10px/1 var(--sans);
-  letter-spacing: 0.22em;
+  letter-spacing: 0.25em;
 }
 
 .intro {
@@ -270,25 +271,43 @@ img {
   letter-spacing: -0.04em;
 }
 
-.botanical-mark {
-  width: 58px;
-  margin: 45px auto;
-  color: var(--sage);
+.monogram-mark {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  margin: 42px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(74, 85, 76, 0.3);
+  border-radius: 50%;
+  color: #5d685f;
+  font: 500 18px/1 var(--display);
+  letter-spacing: 0.02em;
 }
 
-.botanical-mark svg {
-  display: block;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.2;
+.monogram-mark::before,
+.monogram-mark::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 1px;
+  background: rgba(74, 85, 76, 0.22);
+}
+
+.monogram-mark::before { left: -36px; }
+.monogram-mark::after { right: -36px; }
+
+.monogram-mark i {
+  color: #9b7469;
+  font-weight: 400;
 }
 
 .intro__copy {
   margin: 0;
   color: #454c46;
-  font: 400 14px/2.25 var(--serif);
+  font: 400 14.5px/2.2 var(--serif);
 }
 
 .family-lines {
@@ -305,12 +324,12 @@ img {
 
 .family-lines .relation {
   margin: 0 9px;
-  color: #8a8b85;
-  font-size: 10px;
+  color: #767b75;
+  font-size: 11px;
 }
 
 .family-lines strong {
-  font: 700 13px var(--serif);
+  font: 700 14px var(--serif);
 }
 
 .date-card {
@@ -476,7 +495,7 @@ img {
 .section-heading > p {
   margin: 0 0 3px;
   color: var(--ink-soft);
-  font: 400 9px/1.7 var(--serif);
+  font: 400 10.5px/1.7 var(--serif);
   text-align: right;
 }
 
@@ -543,7 +562,7 @@ img {
 .gallery-hint {
   margin: 17px 0 0;
   color: #8b8b83;
-  font-size: 9px;
+  font-size: 10px;
   text-align: center;
 }
 
@@ -566,7 +585,7 @@ img {
 .location__address {
   margin: 0;
   color: var(--ink-soft);
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .map-frame {
@@ -574,7 +593,8 @@ img {
   height: 250px;
   margin-top: 38px;
   overflow: hidden;
-  background: #e9e9df;
+  border: 1px solid rgba(57, 68, 60, 0.09);
+  background: #ecebe3;
 }
 
 .map-frame > svg {
@@ -583,18 +603,18 @@ img {
 }
 
 .map-frame__water {
-  fill: rgba(141, 160, 154, 0.16);
+  fill: rgba(141, 160, 154, 0.1);
 }
 
 .map-frame__road {
   fill: none;
-  stroke: #c8ccc3;
-  stroke-width: 4;
+  stroke: #ced1c9;
+  stroke-width: 3;
 }
 
 .map-frame__road--main {
-  stroke: #aeb6aa;
-  stroke-width: 9;
+  stroke: #b4bcb2;
+  stroke-width: 7;
 }
 
 .map-frame__station {
@@ -610,11 +630,11 @@ img {
 }
 
 .map-frame__pin {
-  fill: var(--ink);
+  fill: #8d6a60;
 }
 
 .map-frame__pin-ring {
-  fill: rgba(36, 48, 39, 0.12);
+  fill: rgba(141, 106, 96, 0.14);
   animation: mapPulse 2.3s ease-in-out infinite;
 }
 
@@ -629,7 +649,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 14px 9px;
+  padding: 11px 16px 10px;
   background: rgba(255, 253, 248, 0.92);
   box-shadow: 0 4px 18px rgba(36, 48, 39, 0.12);
   pointer-events: none;
@@ -638,14 +658,14 @@ img {
 }
 
 .map-frame__label strong {
-  font: 500 9px var(--sans);
+  font: 500 9.5px var(--sans);
   letter-spacing: 0.15em;
 }
 
 .map-frame__label span {
   margin-top: 5px;
   color: #70756f;
-  font-size: 7px;
+  font-size: 7.5px;
   letter-spacing: 0.08em;
 }
 
@@ -662,7 +682,7 @@ img {
   border: 0;
   border-right: 1px solid var(--line);
   background: transparent;
-  font-size: 10px;
+  font-size: 11px;
   cursor: pointer;
 }
 
@@ -692,36 +712,39 @@ img {
 }
 
 .transport-icon {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   display: grid;
   place-items: center;
   border: 1px solid var(--ink);
   border-radius: 50%;
-  font: italic 15px var(--display);
+  color: #7d6a61;
+  font: 500 10px var(--display);
 }
 
 .transport-list strong {
   display: block;
   margin: 0 0 5px;
-  font: 700 12px var(--serif);
+  font: 700 13px var(--serif);
 }
 
 .transport-list p {
   margin: 0;
   color: var(--ink-soft);
-  font-size: 10px;
-  line-height: 1.7;
+  font-size: 11.5px;
+  line-height: 1.75;
 }
 
 .contact {
+  padding-bottom: 70px;
+  background: var(--paper-deep);
   text-align: center;
 }
 
 .contact__description {
   margin: 24px 0 0;
   color: var(--ink-soft);
-  font: 400 12px/1.9 var(--serif);
+  font: 400 13px/1.9 var(--serif);
 }
 
 .accordion-group {
@@ -730,22 +753,23 @@ img {
 }
 
 .accordion {
-  border-top: 1px solid var(--line);
+  border: 1px solid rgba(57, 68, 60, 0.14);
+  background: rgba(255, 253, 248, 0.54);
 }
 
 .accordion:last-child {
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(57, 68, 60, 0.14);
 }
 
 .accordion__trigger {
   width: 100%;
-  padding: 20px 4px;
+  padding: 21px 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 0;
   background: transparent;
-  font: 400 12px var(--serif);
+  font: 700 13px var(--serif);
   cursor: pointer;
 }
 
@@ -775,7 +799,7 @@ img {
 }
 
 .accordion__panel {
-  padding: 0 4px 19px;
+  padding: 0 13px 14px;
 }
 
 .account-row {
@@ -783,18 +807,19 @@ img {
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background: rgba(255, 253, 248, 0.7);
+  border-top: 1px solid rgba(57, 68, 60, 0.1);
+  background: rgba(255, 253, 248, 0.72);
 }
 
 .account-row small,
 .account-row span {
   color: var(--ink-soft);
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .account-row p {
   margin: 5px 0 2px;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .copy-button {
@@ -807,7 +832,19 @@ img {
 }
 
 .guestbook {
+  position: relative;
+  padding-top: 70px;
   background: var(--paper-deep);
+}
+
+.guestbook::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 34px;
+  left: 34px;
+  height: 1px;
+  background: var(--line);
 }
 
 .guestbook__heading {
@@ -817,13 +854,31 @@ img {
 .guestbook__heading > p:last-child {
   margin: 23px 0 0;
   color: var(--ink-soft);
-  font: 400 12px/1.9 var(--serif);
+  font: 400 13px/1.9 var(--serif);
 }
 
 .guestbook-form {
+  position: relative;
   margin-top: 46px;
-  padding: 25px 22px 22px;
-  background: rgba(255, 253, 248, 0.65);
+  padding: 28px 24px 24px;
+  overflow: hidden;
+  border: 1px solid rgba(57, 68, 60, 0.12);
+  background: #f8f4eb;
+  box-shadow: 0 15px 38px rgba(63, 56, 47, 0.06);
+}
+
+.guestbook-form__monogram {
+  position: absolute;
+  top: 17px;
+  right: 21px;
+  color: rgba(76, 86, 78, 0.16);
+  font: 500 21px var(--display);
+  letter-spacing: 0.05em;
+}
+
+.guestbook-form__monogram i {
+  color: rgba(155, 116, 105, 0.24);
+  font-weight: 400;
 }
 
 .guestbook-form label {
@@ -835,8 +890,8 @@ img {
   display: block;
   margin-bottom: 9px;
   color: var(--ink-soft);
-  font-size: 9px;
-  letter-spacing: 0.08em;
+  font-size: 10px;
+  letter-spacing: 0.1em;
 }
 
 .guestbook-form input,
@@ -849,7 +904,7 @@ img {
   outline: 0;
   background: transparent;
   color: var(--ink);
-  font: 400 12px/1.7 var(--serif);
+  font: 400 13.5px/1.75 var(--serif);
   resize: vertical;
 }
 
@@ -867,10 +922,10 @@ img {
   width: 100%;
   min-height: 48px;
   border: 0;
-  background: var(--ink);
+  background: #48564c;
   color: var(--paper);
-  font-size: 10px;
-  letter-spacing: 0.04em;
+  font-size: 11px;
+  letter-spacing: 0.06em;
   cursor: pointer;
 }
 
@@ -884,7 +939,7 @@ img {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   color: var(--ink-soft);
-  font: 400 11px var(--serif);
+  font: 400 12px var(--serif);
   text-align: center;
 }
 
@@ -905,18 +960,18 @@ img {
 }
 
 .guestbook-message strong {
-  font: 700 11px var(--serif);
+  font: 700 12.5px var(--serif);
 }
 
 .guestbook-message time {
   color: #8a8b85;
-  font-size: 8px;
+  font-size: 9px;
 }
 
 .guestbook-message p {
   margin: 10px 0 0;
   color: #4c554e;
-  font: 400 12px/1.8 var(--serif);
+  font: 400 13px/1.8 var(--serif);
   white-space: pre-wrap;
 }
 
@@ -950,7 +1005,7 @@ img {
 
 .closing__text p {
   margin: 0 0 15px;
-  color: var(--butter);
+  color: #d8c7a2;
   font-size: 9px;
   letter-spacing: 0.22em;
 }
@@ -961,18 +1016,20 @@ img {
 }
 
 .closing__text span {
-  font: 400 11px var(--serif);
+  font: 700 14px var(--serif);
 }
 
 .closing__text i {
   margin: 0 9px;
-  font: italic 15px var(--display);
+  color: #d8c7a2;
+  font: italic 17px var(--display);
 }
 
 .footer {
   padding: 38px 24px 34px;
-  background: var(--ink);
-  color: var(--paper);
+  border-top: 1px solid rgba(57, 68, 60, 0.13);
+  background: #e5ded2;
+  color: var(--ink);
   text-align: center;
 }
 
@@ -988,8 +1045,8 @@ img {
   justify-content: center;
   align-items: center;
   gap: 7px;
-  border: 1px solid rgba(242, 238, 228, 0.22);
-  background: transparent;
+  border: 1px solid rgba(57, 68, 60, 0.23);
+  background: rgba(255, 253, 248, 0.26);
   color: inherit;
   font-size: 10px;
   cursor: pointer;
@@ -997,7 +1054,8 @@ img {
 
 .share-actions button:hover,
 .share-actions button:focus-visible {
-  border-color: rgba(242, 238, 228, 0.7);
+  border-color: rgba(57, 68, 60, 0.62);
+  background: rgba(255, 253, 248, 0.55);
 }
 
 .share-actions svg {
@@ -1011,13 +1069,13 @@ img {
 
 .footer > p {
   margin: 40px 0 11px;
-  color: rgba(242, 238, 228, 0.43);
+  color: rgba(36, 48, 39, 0.48);
   font: 9px var(--sans);
   letter-spacing: 0.13em;
 }
 
 .footer > a {
-  color: rgba(242, 238, 228, 0.73);
+  color: rgba(36, 48, 39, 0.7);
   font: 8px var(--sans);
   letter-spacing: 0.15em;
 }
